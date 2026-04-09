@@ -1,27 +1,23 @@
-# fly.toml app configuration file generated for korean-law-mcp on 2026-01-18T12:11:34+09:00
+# fly.toml app configuration file generated for app-divine-sun-8384 on 2026-04-09T14:07:59Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'korean-law-mcp'
-primary_region = 'nrt'
+app = 'app-divine-sun-8384'
+primary_region = 'iad'
 
 [build]
-  dockerfile = 'Dockerfile'
-
-[env]
-  NODE_ENV = 'production'
-  PORT = '3000'
 
 [http_service]
-  internal_port = 3000
+  internal_port = 8080
   force_https = true
-  auto_stop_machines = 'suspend'
+  auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
+  processes = ['app']
 
 [[vm]]
-  memory = '256mb'
+  memory = '1gb'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 256
